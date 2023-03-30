@@ -1,4 +1,4 @@
-package UE0;
+package UE0.Aufgabe2;
 
 public class StapelMitArray implements Stapel{
     private int[] StapelArray;

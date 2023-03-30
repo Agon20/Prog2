@@ -1,4 +1,4 @@
-package UE0;
+package UE0.Aufgabe2;
 
 public class SchlangeMitArray implements Schlange{
     private int[] SchlangenArray;

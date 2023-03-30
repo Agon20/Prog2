@@ -1,6 +1,4 @@
-package UE0;
-
-import java.nio.channels.Pipe;
+package UE0.Aufgabe2;
 
 public class Main {
     public static void main(String[] args) {
