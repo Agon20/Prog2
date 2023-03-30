@@ -1,9 +1,0 @@
-package UE0;
-
-public interface Puffer{
-    public boolean isEmpty();
-    public int size();
-    public int capacity();
-    public void insert(int eingabeObjekt);
-    public void remove();
-}

@@ -1,7 +1,7 @@
 package UE0;
 
 public class SchlangeMitArray implements Schlange{
-    int[] SchlangenArray;
+    private int[] SchlangenArray;
     public SchlangeMitArray(int maxGroesse){
         SchlangenArray = new int[maxGroesse];
     }

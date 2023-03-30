@@ -19,7 +19,9 @@ public class Main {
         stapelObjekt.remove();
         System.out.println("size " + stapelObjekt.size());
 
+
         System.out.println("Schlange");
+
         SchlangeMitArray schlangeObjekt = new SchlangeMitArray(5);
         System.out.println("Leer " + schlangeObjekt.isEmpty());
         schlangeObjekt.insert(1);

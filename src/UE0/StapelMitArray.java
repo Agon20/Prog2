@@ -1,7 +1,7 @@
 package UE0;
 
 public class StapelMitArray implements Stapel{
-    int[] StapelArray;
+    private int[] StapelArray;
     public StapelMitArray(int maxGroesse){
         StapelArray = new int[maxGroesse];
     }
