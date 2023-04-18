@@ -1,6 +1,6 @@
 package UE0.Aufgabe2;
 
-public interface Puffer{
+interface Puffer{
     boolean isEmpty();
     int size();
     int capacity();

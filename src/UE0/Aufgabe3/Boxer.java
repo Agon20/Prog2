@@ -6,26 +6,23 @@ public class Boxer extends Person{
         super(name, vorname);
         this.gewicht = gewicht;
     }
-    public String getGewicht(){
-        String ergebnisstring = toString();
-        return ergebnisstring + ", " + this.gewicht + "kg";
+    public int getGewicht(){
+        return this.gewicht;
     }
-    public String equals(Boxer boxer){
-        String einsname = getName();
-        String einsnachname = getVorname();
-        String einsgewicht = getGewicht();
-        String zweiname = boxer.getName();
-        String zweinachname = boxer.getVorname();
-        String zweigewicht = boxer.getGewicht();
+    public boolean equals(Boxer boxer){
+        String einsname = boxer.getName();
+        String einsnachname = boxer.getVorname();
+        int einsgewicht = boxer.getGewicht();
+        String zweiname = getName();
+        String zweinachname = getVorname();
+        int zweigewicht = getGewicht();
         if(einsname.equals(zweiname)){
             if(einsnachname.equals(zweinachname)){
-                if(einsgewicht.equals(zweigewicht)){
-                    return "Sind gleich";
+                if(einsgewicht==(zweigewicht)){
+                    return true;
                 }
             }
         }
-        return einsname + ", " + einsnachname + ", " + einsgewicht + "kg"
-                + " vs " +
-                zweiname + ", " + zweinachname + ", " + zweigewicht + "kg";
+        return false;
     }
 }

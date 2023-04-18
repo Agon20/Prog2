@@ -1,11 +1,14 @@
 package UE1.TestclassForUE0;
 
 import UE0.Aufgabe2.SchlangeMitArray;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SchlangenMitArrayTest {
+
     SchlangeMitArray testSchlange = new SchlangeMitArray(5);
     @Test
     public void testisEmpty(){
@@ -74,6 +77,7 @@ public class SchlangenMitArrayTest {
         //Test, ob bei Überschreiten der Kapazität des Speichers eine Exception geworfen wird
         assertThrows(IllegalStateException.class, () -> testSchlange.insert(21));
 
+
         System.out.println("...top");
     }
     @Test
@@ -82,6 +86,9 @@ public class SchlangenMitArrayTest {
 
         //Test, ob der Speicher leer ist
         assertEquals(0, testSchlange.size());
+
+        //Test, ob Fehlermeldung kommt
+        assertThrows(NoSuchElementException.class,() -> {testSchlange.remove();});
 
         //5 Elemente hinzufügen
         testSchlange.insert(1);
@@ -120,9 +127,6 @@ public class SchlangenMitArrayTest {
 
         //Test, ob das aktuell vorderste Element geliefert wird
         assertEquals(4, testSchlange.front());
-
-        //Test, ob bei Überschreiten der Kapazität des Arrays eine Exception geworfen wird
-        //assertThrows(IllegalStateException.class, () -> testSchlange.insert(21));
 
         System.out.println("...top");
     }

@@ -1,6 +1,7 @@
 package UE0.Aufgabe3;
 
 public class main {
+
     public static void main(String[] args) {
         Student student1 = new Student("Marc", "Washington", 12324);
         System.out.println(student1.getMatrikel());

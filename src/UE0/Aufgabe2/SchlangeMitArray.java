@@ -48,10 +48,13 @@ public class SchlangeMitArray implements Schlange{
     public void remove() {
         if(size() == 0){
             throw new java.util.NoSuchElementException("Speicher ist leer...");
-        }
-        for(int i = 0; i < SchlangenArray.length; i++){
-            if(SchlangenArray[i] == 0){
-                SchlangenArray[i-1] = 0;
+        }else{
+            for(int i = 0; i < SchlangenArray.length; i++){
+                if(i+1 < SchlangenArray.length) {
+                    SchlangenArray[i] = SchlangenArray[i + 1];
+                }else {
+                    SchlangenArray[i] = 0;
+                }
             }
         }
     }

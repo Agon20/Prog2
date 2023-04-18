@@ -6,26 +6,23 @@ public class Student extends Person{
         super(name, vorname);
         this.matrikelnummer = matrikelnummer;
     }
-    public String getMatrikel(){
-        String ergebnisstring = toString();
-        return ergebnisstring + ", " + this.matrikelnummer;
+    public int getMatrikel(){
+        return this.matrikelnummer;
     }
-    public String equals(Student student){
-        String einsname = getName();
-        String einsnachname = getVorname();
-        String einsmatrikel = getMatrikel();
-        String zweiname = student.getName();
-        String zweinachname = student.getVorname();
-        String zweimatrikel = student.getMatrikel();
+    public boolean equals(Student student1, Student student2){
+        String einsname = student2.getName();
+        String einsnachname = student2.getVorname();
+        int einsmatrikel = student2.getMatrikel();
+        String zweiname = student1.getName();
+        String zweinachname = student1.getVorname();
+        int zweimatrikel = student1.getMatrikel();
         if(einsname.equals(zweiname)){
             if(einsnachname.equals(zweinachname)){
-                if(einsmatrikel.equals(zweimatrikel)){
-                    return "Sind gleich";
+                if(einsmatrikel == zweimatrikel){
+                    return true;
                 }
             }
         }
-        return einsname + ", " + einsnachname + ", " + einsmatrikel
-                + " vs " +
-                zweiname + ", " + zweinachname + ", " + zweimatrikel;
+        return false;
     }
 }

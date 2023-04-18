@@ -18,18 +18,16 @@ public abstract class Person {
     public String toString(){
         return this.name + ", " + this.vorname;
     }
-    public String equals(Student student){
+    public boolean equals(Student student){
         String einsname = getName();
         String einsnachname = getVorname();
         String zweiname = student.getName();
         String zweinachname = student.getVorname();
         if(einsname.equals(zweiname)){
             if(einsnachname.equals(zweinachname)){
-                return "Sind gleich";
+                return true;
             }
         }
-        return einsname + ", " + einsnachname
-                + " vs " +
-                zweiname + ", " + zweinachname;
+        return false;
     }
 }

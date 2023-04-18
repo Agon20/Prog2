@@ -1,5 +1,9 @@
 package UE0.Aufgabe2;
 
+import UE1.Aufgabe3.Funktion;
+
+import java.util.NoSuchElementException;
+
 public class StapelMitArray implements Stapel{
     private int[] StapelArray;
     public StapelMitArray(int maxGroesse){
@@ -47,11 +51,13 @@ public class StapelMitArray implements Stapel{
     @Override
     public void remove() {
         if(size() == 0){
-            throw new java.util.NoSuchElementException("Speicher ist leer...");
+            throw new NoSuchElementException("Speicher ist leer...");
         }
         for(int i = 0; i < StapelArray.length; i++){
-            if(StapelArray[i] == 0){
-                StapelArray[i-1] = 0;
+            if(i+1 < StapelArray.length) {
+                StapelArray[i] = StapelArray[i + 1];
+            }else{
+                StapelArray[i] = 0;
             }
         }
     }
@@ -62,6 +68,11 @@ public class StapelMitArray implements Stapel{
             throw new  java.util.NoSuchElementException("Speicher ist leer...");
         }else{
             return StapelArray[size()-1];
+        }
+    }
+    public void applytoAll(Funktion function){
+        for (int i = 0; i < StapelArray.length; i++){
+            StapelArray[i] = function.auswerten(StapelArray[i]);
         }
     }
 }

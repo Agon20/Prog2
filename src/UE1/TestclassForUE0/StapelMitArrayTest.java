@@ -1,6 +1,7 @@
 package UE1.TestclassForUE0;
 
 import UE0.Aufgabe2.StapelMitArray;
+import UE1.Aufgabe3.Funktion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,13 +14,13 @@ public class StapelMitArrayTest {
     public void testisEmpty(){
         System.out.println("Methode isEmpty() testen...");
 
-        //Test, ob der Speichers leer ist
+        //Test, ob der Speicher leer ist
         assertTrue(testStapel.isEmpty());
 
         //Element hinzufügen
         testStapel.insert(1);
 
-        //Test, ob der Speichers nicht leer ist
+        //Test, ob der Speicher nicht leer ist
         assertFalse(testStapel.isEmpty());
 
         System.out.println("...top");
@@ -127,5 +128,31 @@ public class StapelMitArrayTest {
         //assertThrows(IllegalStateException.class, () -> testSchlange.insert(21));
 
         System.out.println("...top");
+    }
+    @Test
+    public void testApplytoAll(){
+        //Test, ob der Speicher leer ist
+        assertEquals(0, testStapel.size());
+
+        //Element hinzufügen
+        testStapel.insert(2);
+
+        //Lambda für Verdoppeln
+        Funktion verdoppeln = wert -> wert * 2;
+
+        //Lambda für Quadrieren
+        Funktion quadrieren = wert -> wert * wert;
+
+        //applyToAll mit Verdoppeln ausführen
+        testStapel.applytoAll(verdoppeln);
+
+        //Test, ob applyToAll verdoppelt wurde
+        assertEquals(4,testStapel.top());
+
+        //applyToAll mit Quadrieren ausführen
+        testStapel.applytoAll(quadrieren);
+
+        //Test, ob applyToAll quadriert wurde
+        assertEquals(16,testStapel.top());
     }
 }
