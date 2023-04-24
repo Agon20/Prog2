@@ -14,7 +14,7 @@ public class SchlangenMitArrayTest {
     public void testisEmpty(){
         System.out.println("Methode isEmpty() testen...");
 
-        //Test, ob der Speichers leer ist
+        //Test, ob der Speicher leer ist
         assertTrue(testSchlange.isEmpty());
 
         //Element hinzufügen

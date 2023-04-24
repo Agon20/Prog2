@@ -1,18 +1,18 @@
-package UE0.Aufgabe2;
+package UE2.Aufgabe2;
 
-import UE1.Aufgabe3.Funktion;
+import UE2.Aufgabe3.Funktion;
 
 import java.util.NoSuchElementException;
 
-public class StapelMitArray implements Stapel{
-    private int[] StapelArray;
+public class StapelMitArray<T> implements Stapel<T> {
+    private T[] StapelArray;
     public StapelMitArray(int maxGroesse){
-        StapelArray = new int[maxGroesse];
+        StapelArray = (T[]) new Object[maxGroesse];
     }
     @Override
     public boolean isEmpty() {
         for(int i = 0; i < StapelArray.length; i++) {
-            if(StapelArray[i] != 0) {
+            if(StapelArray[i] != null) {
                 return false;
             }
         }
@@ -23,7 +23,7 @@ public class StapelMitArray implements Stapel{
     public int size() {
         int sizeCounter = 0;
         for(int i = 0; i < StapelArray.length; i++){
-            if(StapelArray[i] != 0){
+            if(StapelArray[i] != null){
                 sizeCounter++;
             }
         }
@@ -36,12 +36,12 @@ public class StapelMitArray implements Stapel{
     }
 
     @Override
-    public void insert(int eingabeObjekt) {
+    public void insert(T eingabeObjekt) {
         if(size() == StapelArray.length){
-            throw new java.lang.IllegalStateException("Speicher ist voll...");
+            throw new IllegalStateException("Speicher ist voll...");
         }
         for(int i = 0; i < StapelArray.length; i++){
-            if(StapelArray[i] == 0){
+            if(StapelArray[i] == null){
                 StapelArray[i] = eingabeObjekt;
                 break;
             }
@@ -57,13 +57,13 @@ public class StapelMitArray implements Stapel{
             if(i+1 < StapelArray.length) {
                 StapelArray[i] = StapelArray[i + 1];
             }else{
-                StapelArray[i] = 0;
+                StapelArray[i] = null;
             }
         }
     }
 
     @Override
-    public int top() {
+    public T top() {
         if(size() == 0){
             throw new  NoSuchElementException("Speicher ist leer...");
         }else{
@@ -72,7 +72,7 @@ public class StapelMitArray implements Stapel{
     }
     public void applytoAll(Funktion function){
         for (int i = 0; i < StapelArray.length; i++){
-            StapelArray[i] = function.auswerten(StapelArray[i]);
+            StapelArray[i] = (T) function.auswerten(StapelArray[i]);
         }
     }
 }
