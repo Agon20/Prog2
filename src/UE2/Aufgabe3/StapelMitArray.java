@@ -1,6 +1,6 @@
-package UE2.Aufgabe2;
+package UE2.Aufgabe3;
 
-import UE2.Aufgabe3.Funktion;
+import UE2.Aufgabe3Function.Funktion;
 
 import java.util.NoSuchElementException;
 
@@ -59,6 +59,13 @@ public class StapelMitArray<T> implements Stapel<T> {
             }else{
                 StapelArray[i] = null;
             }
+        }
+    }
+
+    @Override
+    public void elementAufruf() {
+        for (int i = 0; i < StapelArray.length; i++){
+            System.out.println(StapelArray[i]);
         }
     }
 

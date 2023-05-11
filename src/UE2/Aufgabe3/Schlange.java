@@ -1,4 +1,4 @@
-package UE2.Aufgabe2;
+package UE2.Aufgabe3;
 
 public interface Schlange<T> extends Puffer<T> {
 

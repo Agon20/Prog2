@@ -1,4 +1,4 @@
-package UE2.Aufgabe2;
+package UE2.Aufgabe3;
 
 public class Main {
     public static void main(String[] args) {

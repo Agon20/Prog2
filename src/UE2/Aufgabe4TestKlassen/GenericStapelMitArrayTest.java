@@ -1,6 +1,6 @@
-package UE2;
+package UE2.Aufgabe4TestKlassen;
 
-import UE2.Aufgabe2.StapelMitArray;
+import UE2.Aufgabe3.StapelMitArray;
 import org.junit.jupiter.api.*;
 
 import java.util.NoSuchElementException;

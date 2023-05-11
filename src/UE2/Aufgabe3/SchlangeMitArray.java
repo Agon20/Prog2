@@ -1,4 +1,4 @@
-package UE2.Aufgabe2;
+package UE2.Aufgabe3;
 
 public class SchlangeMitArray<T> implements Schlange<T> {
     private T[] SchlangenArray;
@@ -58,7 +58,12 @@ public class SchlangeMitArray<T> implements Schlange<T> {
             }
         }
     }
-
+    @Override
+    public void elementAufruf() {
+        for (int i = 0; i < SchlangenArray.length; i++){
+            System.out.println(SchlangenArray[i]);
+        }
+    }
     @Override
     public T front() {
         int aktuelleStelle = 0;

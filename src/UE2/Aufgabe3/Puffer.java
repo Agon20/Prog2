@@ -1,9 +1,10 @@
-package UE2.Aufgabe2;
+package UE2.Aufgabe3;
 
-interface Puffer<T>{
+public interface Puffer<T>{
     boolean isEmpty();
     int size();
     int capacity();
     void insert(T eingabeObjekt);
     void remove();
+    void elementAufruf();
 }
