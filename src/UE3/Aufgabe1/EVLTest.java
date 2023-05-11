@@ -139,4 +139,23 @@ public class EVLTest {
         // test toString method
         assertEquals("3-Zweiter Eingang-Erster Eingang-21-Letzter Eingang", objectEVL.toString());
     }
+
+    @Test
+    void testZip (){
+        objectEVL.addFirst("Test");
+        objectEVL.addFirst("Test1");
+        objectEVL.addFirst("Test12");
+        objectEVL.addFirst("Test123");
+
+        EVL<Object> objectEVL2 = new EVL<>();
+
+        objectEVL2.addFirst("2Test");
+        objectEVL2.addFirst("2Test1");
+        objectEVL2.addFirst("2Test12");
+        objectEVL2.addFirst("2Test123");
+
+        objectEVL.zip(objectEVL2);
+
+        assertEquals(8, objectEVL.size());
+    }
 }

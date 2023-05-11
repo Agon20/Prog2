@@ -1,5 +1,6 @@
 package UE3.Aufgabe1;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class EVL<T> {
@@ -104,5 +105,18 @@ public class EVL<T> {
             ergebnis += current.data ;
         }
         return ergebnis;
+    }
+    public void zip (EVL<T> other){
+        EVL<T> zwischenablage = new EVL<>();
+        int count = other.size() + this.size();
+        for (int i = 0; i < count; i++){
+            System.out.println("i: " + i);
+            if (this.size() != 0){zwischenablage.addLast(this.removeFirst());}
+            if (other.size() != 0){zwischenablage.addLast(other.removeFirst());}
+        }
+        for (int i = 0; i < count; i++){
+            System.out.println("2 i: " + i);
+            this.addLast(zwischenablage.removeFirst());
+        }
     }
 }
