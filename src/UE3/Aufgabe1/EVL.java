@@ -62,7 +62,7 @@ public class EVL<T> {
             size--;
             return r;
         }
-        throw new NoSuchElementException("Can't remove from empty List");
+        throw new NoSuchElementException("Can't remove from empty list");
     }
     public T getFirst() throws NoSuchElementException {
         if(null != first){
@@ -110,12 +110,10 @@ public class EVL<T> {
         EVL<T> zwischenablage = new EVL<>();
         int count = other.size() + this.size();
         for (int i = 0; i < count; i++){
-            System.out.println("i: " + i);
             if (this.size() != 0){zwischenablage.addLast(this.removeFirst());}
             if (other.size() != 0){zwischenablage.addLast(other.removeFirst());}
         }
         for (int i = 0; i < count; i++){
-            System.out.println("2 i: " + i);
             this.addLast(zwischenablage.removeFirst());
         }
     }
