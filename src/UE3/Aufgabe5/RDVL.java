@@ -25,51 +25,48 @@ public class RDVL<T> {
     void add(T e){
         if(e == null){throw new NullPointerException("Argument cannot be null");}
         ListenEl o = new ListenEl(e);
-        if(entry == null){entry = o;}
+        if(entry == null){entry = o; entry.next = o; entry.before = o;}
         else{
-            if(entry.before != null){
-                entry.before.next = o;
-                o.before = entry.before;
-            }else if(entry.next == null){
-                entry.next = o;
-                o.before = entry;
-            }
+            entry.before.next = o;
+            o.before = entry.before;
             entry.before = o;
             o.next = entry;
         }
+        size++;
     }
     void remove(){
-        if(entry == null){throw new NullPointerException("Can't remove from empty list")}
-        else {
+        if(entry == null){throw new NullPointerException("Can't remove from empty list");}
+        if (entry.next == entry && entry.before == entry){
+            entry = null;
+        }else{
             entry.next.before = entry.before;
-            entry.before.next = entry.next;
             entry = entry.next;
+            entry.before.next = entry.next;
         }
+        size--;
     }
     String element(){
         if(entry == null){throw new NullPointerException("Empty list, nothing to return.");}
-        return (String) entry.data;
+        return entry.data.toString();
     }
     void next(int s){
         ListenEl current = entry;
-        for (int i = 0; i > s; i++){
+        for (int i = 0; i < s; i++){
             current = current.next;
         }
-        if(s != 0) {
-            entry.next.before = entry.before;
-            entry.before.next = entry.next;
-            current.next.before = entry;
-            entry.next = current.next;
-            entry.before = current;
-            current.next = entry;
-        }
+        mover(current, s);
+        size++;
     }
     void prev(int s){
         ListenEl current = entry;
-        for (int i = 0; i > s; i++){
+        for (int i = 0; i < s; i++){
             current = current.before;
         }
-        if(s != 0){
+        mover(current, s);
+        size++;
+    }
+    private void mover(ListenEl current, int s){
+        if(s != 0) {
             entry.next.before = entry.before;
             entry.before.next = entry.next;
             current.next.before = entry;
