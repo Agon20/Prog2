@@ -12,12 +12,11 @@ public class TimeTestSchlange {
         long finish;
         long elapsed;
 
-        for(int i = 1; i <= 1000; i++){
-            sma.insert(i);
-            sme.insert(i);
-        }
         start = System.currentTimeMillis();
 
+        for(int i = 1; i <= 1000; i++){
+            sma.insert(i);
+        }
         for(int i = 1; i <= 1000; i++){
             sma.remove();
         }
@@ -29,6 +28,10 @@ public class TimeTestSchlange {
 
 
         start = System.currentTimeMillis();
+
+        for(int i = 1; i <= 1000; i++){
+            sme.insert(i);
+        }
 
         for(int i = 1; i <= 1000; i++){
             sme.remove();

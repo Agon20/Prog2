@@ -32,7 +32,7 @@ public class SchlangeMitEVL<T> implements Schlange<T> {
 
     @Override
     public void remove() {
-        speicherliste.removeLast();
+        speicherliste.removeFirst();
     }
 
     @Override
