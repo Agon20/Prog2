@@ -1,13 +1,12 @@
-package UE4.Aufgabe3;
+package UE5.Aufgabe3;
 
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class Ringpuffer<T> {
     private T[] ringpufferArray;
     private int zeiger = 0;
     private int size;
-    public Ringpuffer (int capacity){
+    public Ringpuffer(int capacity){
         ringpufferArray = (T[]) new Object[capacity];
     }
     public int size() {
