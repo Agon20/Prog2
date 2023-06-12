@@ -76,9 +76,21 @@ class FolgeMitRingTest {
 
     @Test
     void testRemoveWithArgument() {
+        assertTrue(folge.isEmpty());
+        folge.insert(21);
+        folge.insert(22);
+        folge.insert("twenty-three");
+        assertEquals(22, folge.remove(1));
+        assertEquals(2, folge.size());
     }
 
     @Test
     void testInsertWithArgument() {
+        assertTrue(folge.isEmpty());
+        folge.insert(21);
+        folge.insert(22);
+        folge.insert("twenty-three");
+        folge.insert(1,"24");
+        assertEquals("24", folge.get(1));
     }
 }

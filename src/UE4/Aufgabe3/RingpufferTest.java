@@ -19,20 +19,20 @@ class RingpufferTest {
     @Test
     void get() {
         assertThrows(NullPointerException.class, ()-> objectRingpuffer.get(4));
-        objectRingpuffer.addFirst(21);
-        objectRingpuffer.addFirst("22");
-        assertEquals("22", objectRingpuffer.get(0));
-        assertEquals(21, objectRingpuffer.get(1));
+        objectRingpuffer.addLast(21);
+        objectRingpuffer.addLast("22");
+        assertEquals("22", objectRingpuffer.get(1));
+        assertEquals(21, objectRingpuffer.get(0));
     }
 
     @Test
     void set() {
         assertThrows(NullPointerException.class, ()-> objectRingpuffer.set(2,2));
         assertThrows(NoSuchElementException.class, ()-> objectRingpuffer.set(2,null));
-        objectRingpuffer.addFirst(221);
-        objectRingpuffer.addFirst("Täter");
-        assertEquals("Täter", objectRingpuffer.set(0,22));
-        assertEquals(221, objectRingpuffer.set(1,21));
+        objectRingpuffer.addLast(221);
+        objectRingpuffer.addLast("Täter");
+        assertEquals("Täter", objectRingpuffer.set(1,22));
+        assertEquals(221, objectRingpuffer.set(0,21));
     }
 
     @Test
@@ -45,10 +45,10 @@ class RingpufferTest {
         objectRingpuffer.addFirst("24");
         assertThrows(IndexOutOfBoundsException.class, ()-> objectRingpuffer.addFirst(25));
         assertEquals(4, objectRingpuffer.size());
-        assertEquals(21, objectRingpuffer.get(3));
-        assertEquals(22, objectRingpuffer.get(2));
-        assertEquals(23, objectRingpuffer.get(1));
-        assertEquals("24", objectRingpuffer.get(0));
+        assertEquals("24", objectRingpuffer.get(3));
+        assertEquals(23, objectRingpuffer.get(2));
+        assertEquals(22, objectRingpuffer.get(1));
+        assertEquals(21, objectRingpuffer.get(0));
     }
 
     @Test
@@ -70,15 +70,15 @@ class RingpufferTest {
     @Test
     void removeFirst() {
         assertThrows(NullPointerException.class, ()-> objectRingpuffer.removeFirst());
-        objectRingpuffer.addFirst(21);
-        objectRingpuffer.addFirst(22);
-        objectRingpuffer.addFirst(23);
-        objectRingpuffer.addFirst("24");
+        objectRingpuffer.addLast(21);
+        objectRingpuffer.addLast(22);
+        objectRingpuffer.addLast(23);
+        objectRingpuffer.addLast("24");
         assertEquals(4, objectRingpuffer.size());
-        assertEquals("24",objectRingpuffer.removeFirst());
-        assertEquals(23,objectRingpuffer.removeFirst());
-        assertEquals(22,objectRingpuffer.removeFirst());
         assertEquals(21,objectRingpuffer.removeFirst());
+        assertEquals(22,objectRingpuffer.removeFirst());
+        assertEquals(23,objectRingpuffer.removeFirst());
+        assertEquals("24",objectRingpuffer.removeFirst());
         assertEquals(0, objectRingpuffer.size());
     }
 

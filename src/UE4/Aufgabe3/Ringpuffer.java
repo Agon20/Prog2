@@ -44,6 +44,10 @@ public class Ringpuffer<T> {
                 }
                 ringpufferArray[zeiger] = e;
             }
+            zeiger += 1;
+            if (zeiger >= ringpufferArray.length){
+                zeiger = zeiger - ringpufferArray.length;
+            }
             size++;
         }else {
             throw new IndexOutOfBoundsException("Array is full");

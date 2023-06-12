@@ -1,6 +1,5 @@
 package UE5.Aufgabe3;
 
-import UE5.Aufgabe3.Ringpuffer;
 import UE5.Aufgabe2.Folge;
 
 public class FolgeMitRing<T> implements Folge<T> {
@@ -53,11 +52,11 @@ public class FolgeMitRing<T> implements Folge<T> {
 
     @Override
     public T remove(int pos) throws IndexOutOfBoundsException {
-        return null;
+        return speicher.removeFirst(pos);
     }
 
     @Override
     public void insert(int pos, T e) throws IndexOutOfBoundsException {
-
+        speicher.addPos(pos, e);
     }
 }

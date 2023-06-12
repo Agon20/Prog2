@@ -1,6 +1,5 @@
-package UE1.Aufgab4;
+package UE1.Aufgabe4;
 
-import UE0.Aufgabe3.Boxer;
 import UE0.Aufgabe3.Student;
 import org.junit.jupiter.api.Test;
 

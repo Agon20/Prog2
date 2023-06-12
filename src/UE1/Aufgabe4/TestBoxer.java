@@ -1,7 +1,6 @@
-package UE1.Aufgab4;
+package UE1.Aufgabe4;
 
 import UE0.Aufgabe3.Boxer;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

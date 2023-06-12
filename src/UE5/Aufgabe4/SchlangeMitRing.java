@@ -1,7 +1,7 @@
 package UE5.Aufgabe4;
 
 import UE2.Aufgabe3.Schlange;
-import UE4.Aufgabe3.Ringpuffer;
+import UE5.Aufgabe3.Ringpuffer;
 
 public class SchlangeMitRing<T> implements Schlange<T> {
     private Ringpuffer<T> speicher;

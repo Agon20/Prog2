@@ -48,6 +48,25 @@ public class Ringpuffer<T> {
             throw new IndexOutOfBoundsException("Array is full");
         }
     }
+    public void addPos(int pos, T e) throws IndexOutOfBoundsException, NoSuchElementException {
+        if (e == null){throw new NoSuchElementException("e is null");}
+        if (size != ringpufferArray.length){
+            zeiger += pos;
+            if (ringpufferArray[zeiger] == null){
+                ringpufferArray[zeiger] = e;
+            } else {
+                for (int i = ringpufferArray.length-1; i > 0; i--){
+                    int ii = zeiger + i;
+                    if (ii >= ringpufferArray.length){ii = ii - ringpufferArray.length;}
+                    ringpufferArray[ii] = ringpufferArray[ii-1];
+                }
+                ringpufferArray[zeiger] = e;
+            }
+            size++;
+        }else {
+            throw new IndexOutOfBoundsException("Array is full");
+        }
+    }
     public void addLast(T e) throws IndexOutOfBoundsException, NoSuchElementException {
         if (e == null){throw new NoSuchElementException("e is null");}
         if (size != ringpufferArray.length){
@@ -66,6 +85,20 @@ public class Ringpuffer<T> {
     }
     public T removeFirst() throws NullPointerException {
         if (size != 0){
+            T rueckgabe = ringpufferArray[zeiger];
+            for (int i = 0; i < ringpufferArray.length-1; i++){
+                ringpufferArray[i] = ringpufferArray[i++];
+            }
+            size--;
+            zeiger += 1;
+            return rueckgabe;
+        }else {
+            throw new NullPointerException("Array is empty");
+        }
+    }
+    public T removeFirst(int pos) throws NullPointerException {
+        if (size != 0 && ringpufferArray[zeiger+pos] != null){
+            zeiger += pos;
             T rueckgabe = ringpufferArray[zeiger];
             for (int i = 0; i < ringpufferArray.length-1; i++){
                 ringpufferArray[i] = ringpufferArray[i++];

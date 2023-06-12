@@ -62,7 +62,7 @@ public class EVL<T> {
             size--;
             return r;
         }
-        throw new NoSuchElementException("Can't remove from empty list");
+        throw new NoSuchElementException("Can't remove from empty l+ist");
     }
     public T getFirst() throws NoSuchElementException {
         if(null != first){
