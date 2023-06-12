@@ -2,7 +2,7 @@ package UE7.Aufgabe4;
 
 import java.util.Comparator;
 
-public class Suchbaum<T> implements Comparable<T>{
+public class Suchbaum<T>{
     private Knoten<T> wurzel;
     private final Comparator<T> comparator;
 
@@ -83,7 +83,14 @@ public class Suchbaum<T> implements Comparable<T>{
         String linkeUnterbaum = toStringHelper(knoten.links);
         String rechteUnterbaum = toStringHelper(knoten.rechts);
 
-        return "(" + linkeUnterbaum + ")" + knoten.wert + "(" + rechteUnterbaum + ")";
+        if (!linkeUnterbaum.equals("")){
+            linkeUnterbaum = "(" + linkeUnterbaum + ")";
+        }
+        if (!rechteUnterbaum.equals("")){
+            rechteUnterbaum = "(" + rechteUnterbaum + ")";
+        }
+
+        return linkeUnterbaum + knoten.wert + rechteUnterbaum;
     }
 
     public int hoehe() {

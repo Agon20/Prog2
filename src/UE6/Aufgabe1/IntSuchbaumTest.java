@@ -46,7 +46,7 @@ class IntSuchbaumTest {
         baum.insert(25);
         baum.insert(23);
         baum.insert(24);
-        assertEquals("((()19())20())21(()22((()23(()24()))25()))",baum.toString());
+        assertEquals("((19)20)21(22((23(24))25))",baum.toString());
     }
 
     @Test

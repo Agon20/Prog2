@@ -72,8 +72,14 @@ public class IntSuchbaum {
 
         String linkeUnterbaum = toStringHelper(knoten.links);
         String rechteUnterbaum = toStringHelper(knoten.rechts);
+        if (!linkeUnterbaum.equals("")){
+            linkeUnterbaum = "(" + linkeUnterbaum + ")";
+        }
+        if (!rechteUnterbaum.equals("")){
+            rechteUnterbaum = "(" + rechteUnterbaum + ")";
+        }
 
-        return "(" + linkeUnterbaum + ")" + knoten.wert + "(" + rechteUnterbaum + ")";
+        return linkeUnterbaum + knoten.wert + rechteUnterbaum;
     }
 
     public int hoehe() {
