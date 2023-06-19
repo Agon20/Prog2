@@ -51,7 +51,6 @@ public class IntSuchbaum {
         if (knoten == null) {
             return false;
         }
-
         if (knoten.wert.equals(i)) {
             return true;
         } else if (i < knoten.wert) {

@@ -3,7 +3,7 @@ package UE7.Aufgabe4;
 import java.util.Comparator;
 
 public class Suchbaum<T>{
-    private Knoten<T> wurzel;
+    private Knoten wurzel;
     private final Comparator<T> comparator;
 
     public Suchbaum(){ this(null);}
@@ -13,11 +13,11 @@ public class Suchbaum<T>{
         this.comparator = comparator;
     }
 
-    private class Knoten<T>{
+    private class Knoten{
 
         private T wert;
-        private Knoten<T> links;
-        private Knoten<T> rechts;
+        private Knoten links;
+        private Knoten rechts;
         public Knoten(T wert){
             this.wert = wert;
             links = null;
@@ -31,10 +31,10 @@ public class Suchbaum<T>{
 
     public void insert(T i){
         if(!contains(i)){
-            Knoten<T> knoten = new Knoten<>(i);
+            Knoten knoten = new Knoten(i);
             if (wurzel == null){wurzel = knoten;}
             else{
-                Knoten<T> node = wurzel;
+                Knoten node = wurzel;
                 while (true){
                     if (compareElements(knoten.wert , node.wert) < 0){
                         if(node.links == null){
@@ -57,14 +57,14 @@ public class Suchbaum<T>{
     public boolean contains(T i) {
         return containsRekursiv(wurzel, i);
     }
-    private boolean containsRekursiv(Knoten<T> knoten, T i) {
+    private boolean containsRekursiv(Knoten knoten, T i) {
         if (knoten == null) {
             return false;
         }
-        int comparison = comparator.compare(i, knoten.wert);
-        if (knoten.wert.equals(i)) {
+        int comparison = compareElements(i, knoten.wert);
+        if (comparison == 0) {
             return true;
-        } else if (0 < comparison) {
+        } else if (0 > comparison) {
             return containsRekursiv(knoten.links, i);
         } else {
             return containsRekursiv(knoten.rechts, i);
@@ -75,7 +75,7 @@ public class Suchbaum<T>{
         return toStringHelper(wurzel);
     }
 
-    private String toStringHelper(Knoten<T> knoten) {
+    private String toStringHelper(Knoten knoten) {
         if (knoten == null) {
             return "";
         }
@@ -97,7 +97,7 @@ public class Suchbaum<T>{
         return berechneHoehe(wurzel);
     }
 
-    private int berechneHoehe(Knoten<T> knoten) {
+    private int berechneHoehe(Knoten knoten) {
         if (knoten == null) {
             return 0;
         }
@@ -112,7 +112,7 @@ public class Suchbaum<T>{
         return sizeRekursiv(wurzel);
     }
 
-    private int sizeRekursiv(Knoten<T> knoten) {
+    private int sizeRekursiv(Knoten knoten) {
         if (knoten == null) {
             return 0;
         }
@@ -123,7 +123,7 @@ public class Suchbaum<T>{
         return 1 + linksGroesse + rechtsGroesse;
     }
 
-    private int compareElements(T element1, T element2) {
+    public int compareElements(T element1, T element2) {
         if (comparator == null) {
             // Verwende die natürliche Ordnung (compareTo)
             if (element1 instanceof Comparable && element2 instanceof Comparable) {
